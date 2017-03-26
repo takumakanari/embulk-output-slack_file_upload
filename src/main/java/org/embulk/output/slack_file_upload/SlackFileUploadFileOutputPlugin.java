@@ -64,7 +64,7 @@ public class SlackFileUploadFileOutputPlugin
                     ex);
         }
         task.setPathPrefix(Paths.get(Files.createTempDir().getAbsolutePath(),
-                task.getFileNamePrefix()).toFile().getAbsolutePath());
+                new File(task.getFileNamePrefix()).getName()).toFile().getAbsolutePath());
 
         ConfigDiff configDiff = resume(task.dump(), taskCount, control);
 
