@@ -86,12 +86,12 @@ public class SlackFileUploadFileOutputPlugin
 
         final SlackClient client = new SlackClient(task.getApiToken());
         for (File f : rootDir.listFiles()) {
-            // TODO retry
-            if (!task.getMinLines().isPresent() || isUploadable(f, task.getMinLines().get())) {
-                client.fileUpload(f, task.getTitle(), task.getChannels());
-            } else {
+            if (task.getMinLines().isPresent() && !isUploadable(f, task.getMinLines().get())) {
                 log.info(String.format(Locale.ENGLISH, "'%s' doesn't meet the min lines to upload", f.getName()));
+                continue;
             }
+            // TODO retry
+            client.fileUpload(f, task.getTitle(), task.getChannels());
         }
     }
 
