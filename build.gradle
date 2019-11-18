@@ -19,8 +19,8 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 dependencies {
-    compile  "org.embulk:embulk-core:0.9.15"
-    compile  "org.embulk:embulk-standards:0.9.15"
+    compile  "org.embulk:embulk-core:0.9.19"
+    compile  "org.embulk:embulk-standards:0.9.19"
     compile "com.github.seratch:jslack:1.0.8"
     testCompile "junit:junit:4.+"
 }
